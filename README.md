@@ -8,7 +8,7 @@ on May 8th, 2025.
 
 ## Download the data
 
-A sample of the data is available in the relases of this repository
+A sample of the data is available in the releases of this repository
 [here](https://github.com/juanfonsecaLS1/TM_datos/releases/tag/v0). The
 full dataset can be obtained directly from the data portal of
 Transmilenio [here](https://datosabiertos-transmilenio.hub.arcgis.com/).
@@ -122,7 +122,15 @@ str(boardingZonal)
       .. )
      - attr(*, "problems")=<externalptr> 
 
-A translation of the metadata:
+A translation of the column names:
+
+| Col name        | Translation           |
+|-----------------|-----------------------|
+| Estacion_Parada | stop                  |
+| fecha           | date                  |
+| hora            | hour                  |
+| Sistema         | system                |
+| validaciones    | validations (tap-ins) |
 
 ## Exploring Tap-In data
 
@@ -183,14 +191,44 @@ str(tapindaily)
       .. )
      - attr(*, "problems")=<externalptr> 
 
-A translation of the metadata:
+A translation of the column names:
 
-Can you figure out and visualise: - the daily trips of a card with a few
-records? - travel patterns of 62+ yr users? - …
+| Col name                   | Translation                       |
+|----------------------------|-----------------------------------|
+| Acceso_Estacion            | access id                         |
+| Day_Group_Type             | day type                          |
+| Dispositivo                | device (where tapped-in )         |
+| Emisor                     | card issuer                       |
+| Estacion_Parada            | station/stop where tapped-in      |
+| Fase                       | BRT phase                         |
+| Fecha_Clearing             | date of transaction               |
+| Fecha_Transaccion          | transaction’s timestamp           |
+| Hora_Pico_SN               | logical if peak hour              |
+| ID_Vehiculo                | vehicle id for zonal buses        |
+| Linea                      | line                              |
+| Nombre_Perfil              | profile name                      |
+| Numero_Tarjeta             | card id                           |
+| Operador                   | vehicle operator                  |
+| Ruta                       | service id                        |
+| Saldo_Despues_Transaccion  | balance after tap-in              |
+| Saldo_Previo_a_Transaccion | balance before tap-in             |
+| Sistema                    | system either Trunk(BRT) or Zonal |
+| Tipo_Tarifa                | fare type                         |
+| Tipo_Tarjeta               | card type                         |
+| Tipo_Vehiculo              | vehicle type                      |
+| Valor                      | fare cost                         |
+
+Can you figure out and visualise:
+
+- the daily trips of a card with a few records?
+
+- travel patterns of 62+ yr users?
+
+- …
 
 ## Trip Ends
 
-This dataset containes the number of daily trip-ends (people boarding or
+This dataset contains the number of daily trip-ends (people boarding or
 leaving the system)
 
 ``` r
@@ -222,5 +260,23 @@ str(tripendsdaily)
 
 A translation of the metadata:
 
-Can you estimate: - users not paying the fare? - travel patterns across
-the city? - …
+A translation of the column names:
+
+| Col name          | Translation  |
+|-------------------|--------------|
+| Fecha_Transaccion | date         |
+| Tiempo            | time         |
+| Linea             | line (zone)  |
+| Estacion          | stop/station |
+| Acceso_Estacion   | access id    |
+| Dispositivo       | device       |
+| Entradas_E        | entry_counts |
+| Salidas_S         | exit_counts  |
+
+Can you estimate:
+
+- users not paying the fare?
+
+- travel patterns across the city?
+
+- …
